@@ -4,6 +4,27 @@
 // that manipulates variables defined in the outer scope.
 // The outer scope can be a parent function, or the top level of the script.
 
+function myCat (name) {
+  const catName = name;
+  console.log(`My cat's name is ${catName}.`);
+  debugger;
+
+  function fur (color) {
+    const furType = "gray";
+    console.log(`${catName} is kind of big!`);
+    debugger;
+
+    function catInfo (info) {
+      const allAbout = "About my cat";
+      console.log(`My cat ${catName} is big and ${furType}.`);
+      debugger;
+    }
+    catInfo();
+  }
+  fur();
+}
+
+myCat("Fluffy");
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
@@ -16,7 +37,16 @@ const counterMaker = () => {
   //      NOTE: This `counter` function, being nested inside `counterMaker`,
   //      "closes over" the `count` variable. It can "see" it in the parent scope!
   // 3- Return the `counter` function.
+  let count = 0;
+  return function () {
+    return count++;
 };
+}
+let newCounter = counter();
+
+console.log(newCounter());
+console.log(newCounter());
+
 // Example usage: const myCounter = counterMaker();
 // myCounter(); // 1
 // myCounter(); // 2
