@@ -69,7 +69,7 @@ console.log(fullNames);
 let firstNamesAllCaps = [];
 runners.map(function(currentValue) {
   return currentValue.first_name.toUpperCase();
-};
+});
 
 console.log(firstNamesAllCaps);
 
