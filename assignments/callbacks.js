@@ -84,13 +84,11 @@ multiplyNums(8, 7, product);
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
-cb(item, list);
-}
+  let evalItem = list.filter(listItem => listItem === item)[0];
+  return cb(evalItem === item)
 
-function presentItems(item, list) {
-  console.log(list.include(items));
 }
-contains("Notebook", items, presentItems);
+contains("Notebook", items, console.log);
 
 /* STRETCH PROBLEM */
 
@@ -98,4 +96,5 @@ function removeDuplicates(array, cb) {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
+
 }
