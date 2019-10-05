@@ -39,13 +39,13 @@ const counterMaker = () => {
   // 3- Return the `counter` function.
   let count = 0;
   return function () {
-    return count++;
+    
 };
 }
-let newCounter = counter();
+const myCounter = counterMaker();
 
-console.log(newCounter());
-console.log(newCounter());
+console.log(myCounter());
+console.log(myCounter());
 
 // Example usage: const myCounter = counterMaker();
 // myCounter(); // 1
@@ -60,4 +60,16 @@ const counterFactory = () => {
   // Return an object that has two methods called `increment` and `decrement`.
   // `increment` should increment a counter variable in closure scope and return it.
   // `decrement` should decrement the counter variable and return it.
-};
+  let counter = {
+    count : 0,
+    increment : function() { return(++this.count); },
+    decrement : function() { return(--this.count); }
+  }
+  return (counter);
+}
+
+const newCounter2 = counterFactory();
+console.log(newCounter2.decrement());
+console.log(newCounter2.increment());
+console.log(newCounter2.increment());
+console.log(newCounter2.increment());
